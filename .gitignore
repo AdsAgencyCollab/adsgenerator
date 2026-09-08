@@ -2,11 +2,11 @@
 # 61MB of packshots, COA scans and label die-lines. Re-extract from the zips.
 _assets/
 
-# Generated ad renders land here; they live in Higgsfield + the wave folder.
-*.png
-*.jpg
-*.jpeg
+# Source assets are binaries we can re-extract; finished creatives are the
+# deliverable and stay versioned.
 *.webp
+!CLIENT ADS/**/*.png
+!CLIENT ADS/**/*.jpg
 
 # build scripts + intermediates
 _build/
