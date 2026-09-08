@@ -1,0 +1,9 @@
+# Client brand assets extracted from supplied zips — binaries, not source.
+# 61MB of packshots, COA scans and label die-lines. Re-extract from the zips.
+_assets/
+
+# Generated ad renders land here; they live in Higgsfield + the wave folder.
+*.png
+*.jpg
+*.jpeg
+*.webp
