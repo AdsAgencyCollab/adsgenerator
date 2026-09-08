@@ -7,3 +7,6 @@ _assets/
 *.jpg
 *.jpeg
 *.webp
+
+# build scripts + intermediates
+_build/
