@@ -20,7 +20,8 @@ All 40 files pass the pixel and copy gates. Nothing is held for creative reasons
 | Numbers on canvas | every figure traces to a COA row in `SUBSTANTIATION.md` |
 | Numbers on a drawn chart | none — no chromatogram is drawn anywhere in the set |
 | Platform / OS / third-party chrome | none rendered |
-| Discount code on canvas | **none** — the offer runs code-free by client decision, so there is no code to get wrong |
+| Discount code on canvas | **10 codes, one per offer creative**, supplied by the client 2026-09-08. Each verified against the client list, no duplicates, set in monospace so 0/O and 1/I cannot be misread. `LOT15VIAL15` withheld pending clarification. |
+| Discount tier matches code | 10/10 — RESEARCH20 20%, six 15% codes, RESEARCH10 and SAVE10FLAT 10%, SHIPFREE free shipping. **The earlier 25% figure was withdrawn: no supplied code offers 25%.** |
 
 ## Substantiation audit
 | Claim on canvas | Source | Live-verified this run |
@@ -53,7 +54,7 @@ None. No judge cut an asset.
 
 ## ⛔ Decisions needed by a human before launch
 1. **Live-page verification never ran.** `scientipeptides.com` is blocked by this environment's egress proxy (403 on CONNECT). D01 §1.8 makes this a hard gate. Every COA-sourced number is document-verified and strong; the free-shipping and site-copy rows are screenshot-grade.
-2. **The 25% offer must actually be live** and must work without a code. If a code is issued later, the 10 offer files need re-rendering — one command, since the text is real type.
+2. **Every code must be confirmed active** at its stated tier, with any minimum-spend term the creative does not mention. None could be checked — the site is blocked from this environment.
 3. **No destination URL is assigned.** The shop tree names Tirzepatide and Retatrutide on crawlable category pages, which disqualifies most of it under D00 §4. A COA-library or `/science` destination is needed.
 4. **Lander is indication-shaped** — Weight Loss, Sexual Health/Tanning, Pain/Inflammation, Anti-aging. This is the exact trigger set in D01 §1.9 for Meta's health classifier. Delivery-note item, not a creative fix.
 5. **Age gate unconfirmed.**

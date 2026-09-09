@@ -309,3 +309,38 @@ Every primary text closes with the short-form disclaimer, verbatim, per D01 §1.
 - **Primary text:** Ask for the accession number. Search it on the testing laboratory's site. Check the lot matches your vial. Then order — 25% off is applied at checkout. For research use only. Not for human consumption.
 - **Headline:** Do this before your first order.
 - **Description:** A thirty-second check that works on any supplier.
+
+---
+
+## Code map — one code per creative, for clean attribution
+
+Codes supplied by the client 2026-09-08 (Telegram, "we have these ones set up for you guys previously").
+Each is rendered in monospace inside a ticket lockup, so `0`/`O` and `1`/`I` cannot be misread.
+
+| # | Concept | Code | Tier | Group |
+|---|---|---|---|---|
+| 06 | `same-report-20-less` | **`RESEARCH20`** | 20% | NAMED |
+| 07 | `15-off-storewide` | **`RESEARCH15`** | 15% | NAMED |
+| 08 | `read-it-first` | **`FIRSTORDER`** | 15% | NAMED |
+| 09 | `search-then-order` | **`LAB15`** | 15% | NAMED |
+| 10 | `every-lot-numbered` | **`BATCH15`** | 15% | NAMED |
+| 16 | `documented-and-15-off` | **`SAVE15`** | 15% | LOGO |
+| 17 | `starts-with-the-report` | **`RESEARCH10`** | 10% | LOGO |
+| 18 | `15-off-everything` | **`BENCH15`** | 15% | LOGO |
+| 19 | `three-things-we-publish` | **`SAVE10FLAT`** | 10% | LOGO |
+| 20 | `before-your-first-order` | **`SHIPFREE`** | free shipping | LOGO |
+
+**`LOT15VIAL15` is not used.** It is the one entry I could not read unambiguously — it may be a
+single code or two codes (`LOT15` and `VIAL15`) that wrapped onto one line. Confirm and I will add it.
+
+### ⛔ Still unverified
+
+None of these codes could be checked against the live site — `scientipeptides.com` is blocked by this
+environment. Before launch someone must confirm each code is active, applies at the stated tier, and has
+no minimum-spend term the creative does not mention. A code that fails at checkout is the one error that
+costs the client money directly (D00 §3).
+
+**Threshold arithmetic:** the site advertises free shipping over $150. `RESEARCH20` takes a $150 order to
+$120, which would drop it under that threshold. No creative in this set puts the $150 claim on canvas, so
+there is no on-canvas conflict — but if the buyer pairs a 20% ad with free-shipping copy in the caption,
+that is a contradiction worth catching.
