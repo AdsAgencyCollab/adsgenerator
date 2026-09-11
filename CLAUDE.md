@@ -71,10 +71,17 @@ Always prompt the full anatomy, bottom to top:
 | ribbed **aluminium crimp seal**, skirt visible | the #1 recognition cue |
 | coloured **flip-off cap** centred in the crimp | the #2 recognition cue |
 | grey butyl **stopper** faint through the glass | sells the crimp as real |
-| **lyophilized powder puck**, lower fifth only | a full bottle reads as shampoo |
+| **empty glass — nothing inside** | Armin, 11 Sep: no powder, no liquid, nothing |
 | small label on the **middle third only** | full-height label = cosmetics |
 
 Bare glass must be visible **above and below** the label.
+
+**The vial is empty.** Earlier renders put a lyophilized powder puck in the
+bottom. Armin, 11 Sep 2026: *"without any powder inside, without anything
+inside, just like the transparent file."* Clear empty glass, all the way
+through. The grey stopper still shows in the neck — that is the closure, not
+contents, and it is what sells the crimp as real. A sticker or label is fine;
+nothing else is.
 
 Negative list for a vial: *no tall bottle, no shampoo or body-wash bottle, no
 cosmetics or serum bottle, no test tube, no screw cap, no pump, no dropper, no
