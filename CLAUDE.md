@@ -67,6 +67,20 @@ canvas share a light. That is the exception, not the default.
    `{index, params:{model, prompt, aspect_ratio, resolution, input_images}}`;
    always read the `model` field back from `jobs_wait` on the first job before
    committing spend to a full set.
+10. **Proof by the concatenated string, not the token list.** OCR breaks a
+   line-wrapped phrase into one box per line, so `ONE PARTNER` comes back as
+   `ONE` + `PARTNER` and reads as missing. Strip spaces and punctuation, join
+   every token, then search. Job 3 threw three such false alarms in four takes.
+11. **A brief that bans product still carries the standing "attach the packshot"
+   line.** It is boilerplate. Attaching a packshot to a no-product concept pushes
+   the banned element into the frame. Read the HERO and NEGATIVE blocks before
+   attaching anything, and say so when you drop it.
+12. **What cannot be checked here must be said, every time.** Strings, spelling,
+   counts, digits and y-positions are all machine-checkable through the sandbox.
+   *No product in frame*, *no hands*, *no people* and anything else about what the
+   picture looks like are not. Hand those to the user explicitly rather than
+   letting a clean OCR report imply the whole ad was verified.
+
 9. **A small hero drops its small type.** A vial at 30% of frame height leaves a
    label sub-line about ten pixels tall at 1080 delivery, and the model renders
    the plate and silently omits the line. `nano_banana_pro` and `gpt_image_2` at
