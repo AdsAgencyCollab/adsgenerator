@@ -41,9 +41,20 @@ canvas share a light. That is the exception, not the default.
    `no syringes, no needles, no hands` — that part is compliance, never relax it.
    Everything else on the list is **per-lane**, and getting it wrong is what
    produced the shampoo bottles (see *Vials* below).
-4. `nano_banana_pro` at 4K for finals. **24 credits per image at 4K** — twelve
-   times the 2K price, so budget from the real number.
+4. `nano_banana_pro` at 4K for finals. **4 credits per image at 4K.** An earlier
+   version of this file said 24; that figure is wrong. Measured three times by
+   balance delta — most recently 15,491.96 → 15,475.96 for a batch of four, i.e.
+   16 credits for 4 images. Budget from 4, and confirm with `get_cost` preflight.
 5. Budget 1.5–2× the file count in generations; rerolls are expected.
+6. **Conform the ratio afterwards — the model does not honour it.** A "9:16"
+   request returns 3072×5504 (0.5581, not 0.5625) and a "4:5" returns 3712×4608
+   (0.8056, not 0.800). Centre-crop to the exact ratio, then LANCZOS down to the
+   delivery size. 1:1 comes back square and needs no crop.
+7. **Check the type's final y-positions in delivery pixels, not in percentages
+   of the prompt.** Asking for a footer "at about 78% of the frame height" is not
+   binding: on 23 Sep both 9:16 takes put it at 86–91%, inside Meta's Reels
+   bottom-35% and Stories bottom-20% UI zones. Measure the OCR bounding boxes
+   against the real safe-zone pixel lines before handing anything over.
 
 ## Vials — Armin, 11 Sep 2026
 
