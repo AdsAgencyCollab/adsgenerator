@@ -46,10 +46,16 @@ canvas share a light. That is the exception, not the default.
    balance delta — most recently 15,491.96 → 15,475.96 for a batch of four, i.e.
    16 credits for 4 images. Budget from 4, and confirm with `get_cost` preflight.
 5. Budget 1.5–2× the file count in generations; rerolls are expected.
-6. **Conform the ratio afterwards — the model does not honour it.** A "9:16"
-   request returns 3072×5504 (0.5581, not 0.5625) and a "4:5" returns 3712×4608
-   (0.8056, not 0.800). Centre-crop to the exact ratio, then LANCZOS down to the
-   delivery size. 1:1 comes back square and needs no crop.
+6. **Conform the ratio afterwards — nano_banana_pro does not honour it.** A
+   "9:16" request returns 3072×5504 (0.5581, not 0.5625) and a "4:5" returns
+   3712×4608 (0.8056, not 0.800). Centre-crop to the exact ratio, then LANCZOS
+   down to the delivery size. 1:1 comes back square and needs no crop.
+   **`gpt_image_2` is exact** — 2880×2880 and 2160×3840 (0.5625) — so a
+   position-critical layout only needs a downscale. It costs 11 credits an image
+   against nano_banana_pro's 4, and it is markedly better at dense typography:
+   job 7 rendered a four-row three-column table with 19 strings, zero drift,
+   across all four takes. Use it for tables and information artifacts; keep
+   nano_banana_pro for photographic frames.
 7. **Absolute vertical placement is not steerable by prompt. Compose around it.**
    Job 1 asked for a footer "at about 78% of the frame height" and got 86–91%.
    Job 2 hardened that to a named pixel row (1480–1530 of 1920), "the entire
@@ -62,7 +68,13 @@ canvas share a light. That is the exception, not the default.
    A cast shadow running to the frame edge is not an edge: job 6 tried exactly
    that and its CTA still landed at 85–89%. So either put a real object boundary
    across the lower frame with a different surface behind it, or set the footer
-   directly under the headline block in the upper third. Then measure the OCR
+   directly under the headline block in the upper third. Job 7 confirms it: a
+   card bottom edge at 78% plus a shelf at 80% put the footer at 66–70%.
+   **The same trap exists at the top.** Job 7's card top edge sits at 10% and
+   both verticals set the headline hard against the inside of it, at 11.2% and
+   11.9%, inside Meta's Reels top-14% band, despite being told 15%. Fix it the
+   same way: move the physical edge down to about 16% so type cannot start above
+   it. Restating the percentage never works, at either end. Then measure the OCR
    bounding boxes against the real safe-zone pixel lines before handing over.
 8. **The model id you pass is `nano_banana_pro`; the id it stores is
    `nano_banana_2`.** Passing the stored id back is not rejected — it is silently
