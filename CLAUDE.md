@@ -50,11 +50,30 @@ canvas share a light. That is the exception, not the default.
    request returns 3072×5504 (0.5581, not 0.5625) and a "4:5" returns 3712×4608
    (0.8056, not 0.800). Centre-crop to the exact ratio, then LANCZOS down to the
    delivery size. 1:1 comes back square and needs no crop.
-7. **Check the type's final y-positions in delivery pixels, not in percentages
-   of the prompt.** Asking for a footer "at about 78% of the frame height" is not
-   binding: on 23 Sep both 9:16 takes put it at 86–91%, inside Meta's Reels
-   bottom-35% and Stories bottom-20% UI zones. Measure the OCR bounding boxes
-   against the real safe-zone pixel lines before handing anything over.
+7. **Absolute vertical placement is not steerable by prompt. Compose around it.**
+   Job 1 asked for a footer "at about 78% of the frame height" and got 86–91%.
+   Job 2 hardened that to a named pixel row (1480–1530 of 1920), "the entire
+   bottom fifth is empty", and `no text below pixel row 1536` in the negative
+   list — and got 88–92%. Naming pixels is no better than naming percentages.
+   On 9:16 the model pushes the lowest text toward the bottom edge, into Meta's
+   Reels bottom-35% and Stories bottom-20% UI zones, every time. So do not put
+   anything that must be read at the bottom of a vertical frame: set the footer
+   directly under the headline block in the upper third. Then measure the OCR
+   bounding boxes against the real safe-zone pixel lines before handing over.
+8. **The model id you pass is `nano_banana_pro`; the id it stores is
+   `nano_banana_2`.** Passing the stored id back is not rejected — it is silently
+   swapped for `nano_banana_flash`, which is a different, cheaper model. Job 2
+   lost 12 credits to this. `generate_image_batch` takes
+   `{index, params:{model, prompt, aspect_ratio, resolution, input_images}}`;
+   always read the `model` field back from `jobs_wait` on the first job before
+   committing spend to a full set.
+9. **A small hero drops its small type.** A vial at 30% of frame height leaves a
+   label sub-line about ten pixels tall at 1080 delivery, and the model renders
+   the plate and silently omits the line. `nano_banana_pro` and `gpt_image_2` at
+   4k high both did it on job 2, so escalating models does not fix it. Either
+   enlarge the hero until the sub-line can resolve, or take the sub-line off the
+   label. Escalate only for a string that is *misspelled* twice; a string that is
+   *missing* twice is a scale problem and escalation just spends credits.
 
 ## Vials — Armin, 11 Sep 2026
 
