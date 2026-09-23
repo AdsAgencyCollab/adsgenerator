@@ -74,7 +74,21 @@ canvas share a light. That is the exception, not the default.
    both verticals set the headline hard against the inside of it, at 11.2% and
    11.9%, inside Meta's Reels top-14% band, despite being told 15%. Fix it the
    same way: move the physical edge down to about 16% so type cannot start above
-   it. Restating the percentage never works, at either end. Then measure the OCR
+   it. Restating the percentage never works, at either end — job 8 added a deep
+   bare-paper top margin plus `no text above 15 percent` in the negative list and
+   still got 12.5%, so do not retry that.
+   **Put every readable element ON the artifact, never on the ground beside it.**
+   This is the sharpest form of the rule and it is four for four. Type printed on
+   the object stays where it is put: job 3's board footer 74.8%, job 7's card
+   footer 66–70%. Type placed on the floor or desk below the object migrates to
+   the bottom edge: job 6's floor footer 91.8–94.1%, job 8's desk footer
+   92.8–95.4%. Same model, same discipline, same briefed percentage — the only
+   difference is whether the type had a surface to sit on.
+   **A struck-through or rule-crossed line always fails a whole-page OCR pass.**
+   Job 8's fifth row came back as `WANTS` + `LAIM IN THE AD`, and in one take not
+   at all, because a red strike line cut the boxes. Band-crop the row and re-read
+   at 3× before reporting: all four takes were in fact correct at 0.95–0.98. A row
+   that reads as absent is not evidence it is absent when a rule crosses it. Then measure the OCR
    bounding boxes against the real safe-zone pixel lines before handing over.
 8. **The model id you pass is `nano_banana_pro`; the id it stores is
    `nano_banana_2`.** Passing the stored id back is not rejected — it is silently
