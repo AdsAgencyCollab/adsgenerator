@@ -78,6 +78,13 @@ canvas share a light. That is the exception, not the default.
    bare-paper top margin plus `no text above 15 percent` in the negative list and
    still got 12.5%, so do not retry that.
    **Put every readable element ON the artifact, never on the ground beside it.**
+   Type on an object stays where it is put; type on bare ground runs to the
+   nearest edge of the frame, top as readily as bottom. Job 9 put a headline on
+   bare wall above a sign and it landed at 5.2% and 5.8%, far worse than job 7's
+   11.2% where a card edge was at least nearby. Job 9 also tested the rule
+   forward rather than backward: its 9:16 footer was moved off the wall and onto
+   the sign before rendering, and landed at 70.3% and 72.1% where job 8's
+   identical brief on bare desk gave 92.8–95.4%. Five for five.
    This is the sharpest form of the rule and it is four for four. Type printed on
    the object stays where it is put: job 3's board footer 74.8%, job 7's card
    footer 66–70%. Type placed on the floor or desk below the object migrates to
@@ -104,7 +111,13 @@ canvas share a light. That is the exception, not the default.
    centres, then order by x) *before* joining: unsorted, overlapping boxes and
    two-column layouts concatenate out of sequence and still read as missing. Jobs
    3, 5 and 6 threw six such false alarms between them.
-10b. **Measure an ellipsis, never trust OCR on it.** At 1080 the reader merges the
+10b. **Measure terminal punctuation by span ratio, never trust OCR on it.** A
+   period is roughly a third of a letter's width: job 9's `ON THIS BOARD.` showed
+   five letter spans of 91–102 pixels then a final span of 30, and `NO HANDOFFS.`
+   showed 37 against a 132-wide S. Both had read as missing. Three jobs running,
+   a correct full stop or ellipsis has failed the first pass, so a missing
+   terminal mark is never reported without measuring the spans.
+   **Measure an ellipsis the same way.** At 1080 the reader merges the
    dots and returns `again..` for a correct `again...`. Segment the trailing blobs
    after the final letter and count equal-width runs instead. Job 6 read two dots
    on three of four takes; all four were right.
