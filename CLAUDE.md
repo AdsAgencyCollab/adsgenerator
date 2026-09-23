@@ -56,8 +56,12 @@ canvas share a light. That is the exception, not the default.
    bottom fifth is empty", and `no text below pixel row 1536` in the negative
    list — and got 88–92%. Naming pixels is no better than naming percentages.
    On 9:16 the model pushes the lowest text toward the bottom edge, into Meta's
-   Reels bottom-35% and Stories bottom-20% UI zones, every time. So do not put
-   anything that must be read at the bottom of a vertical frame: set the footer
+   Reels bottom-35% and Stories bottom-20% UI zones, every time. What does work
+   is giving the composition a **physical object edge** to stop against — job 3's
+   board ends at 88% with wall visible below it, and the footer moved to 74.8%.
+   A cast shadow running to the frame edge is not an edge: job 6 tried exactly
+   that and its CTA still landed at 85–89%. So either put a real object boundary
+   across the lower frame with a different surface behind it, or set the footer
    directly under the headline block in the upper third. Then measure the OCR
    bounding boxes against the real safe-zone pixel lines before handing over.
 8. **The model id you pass is `nano_banana_pro`; the id it stores is
@@ -67,10 +71,17 @@ canvas share a light. That is the exception, not the default.
    `{index, params:{model, prompt, aspect_ratio, resolution, input_images}}`;
    always read the `model` field back from `jobs_wait` on the first job before
    committing spend to a full set.
-10. **Proof by the concatenated string, not the token list.** OCR breaks a
-   line-wrapped phrase into one box per line, so `ONE PARTNER` comes back as
-   `ONE` + `PARTNER` and reads as missing. Strip spaces and punctuation, join
-   every token, then search. Job 3 threw three such false alarms in four takes.
+10. **Proof by the concatenated string, not the token list — and sort it first.**
+   OCR breaks a line-wrapped phrase into one box per line, so `ONE PARTNER` comes
+   back as `ONE` + `PARTNER` and reads as missing. Strip spaces and punctuation,
+   join every token, then search. Sort the tokens into reading order (band the y
+   centres, then order by x) *before* joining: unsorted, overlapping boxes and
+   two-column layouts concatenate out of sequence and still read as missing. Jobs
+   3, 5 and 6 threw six such false alarms between them.
+10b. **Measure an ellipsis, never trust OCR on it.** At 1080 the reader merges the
+   dots and returns `again..` for a correct `again...`. Segment the trailing blobs
+   after the final letter and count equal-width runs instead. Job 6 read two dots
+   on three of four takes; all four were right.
 11. **A brief that bans product still carries the standing "attach the packshot"
    line.** It is boilerplate. Attaching a packshot to a no-product concept pushes
    the banned element into the frame. Read the HERO and NEGATIVE blocks before
