@@ -172,6 +172,21 @@ canvas share a light. That is the exception, not the default.
    Two edit tricks earn their keep: a **2-frame white flash** on a cut between
    two visually similar beats, so it reads as a cut; and a **3-frame hard black**
    at the PAS turn.
+13a. **On a dark film, only a white flash reads as a cut — a black one is a
+   no-op.** Video 2 is blue-on-black in every beat, and scene detection found
+   **none** of its four content cuts: the frames either side are equally dark and
+   equally sparse. Black blink frames changed nothing, because 2 frames of black
+   on near-black footage is invisible. A 2-frame WHITE flash on each cut took the
+   count from four detections (all of them flashes already present) to ten. Keep
+   a black at the PAS turn only when the voiceover has its own pause there to
+   carry it, and never report that black as a visible cut.
+13b. **Generate the voice separately — it costs a tenth of a credit.**
+   `seed_audio` with a preset voice is 0.1 credits against 48 for a beat, so the
+   script can be re-cut and re-timed as often as it takes without re-rendering
+   any picture. It reads slowly: 40 words came back at 21.9 s, 110 wpm. Trim the
+   head and tail silence, then `atempo` it to **156 wpm**, the pace of the
+   approved cut — for 40 words that is about 15.4 s. atempo preserves pitch. Cut
+   the picture to the resulting word timings, not the other way round.
 14. **`showinfo` logs at info level — a scene-detect written with `-v error`
    prints nothing and reads as zero cuts.** This exact command reported zero cuts
    at every threshold down to 0.05 on a file that had five, and the false finding
