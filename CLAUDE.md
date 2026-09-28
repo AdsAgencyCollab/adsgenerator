@@ -111,6 +111,24 @@ canvas share a light. That is the exception, not the default.
    centres, then order by x) *before* joining: unsorted, overlapping boxes and
    two-column layouts concatenate out of sequence and still read as missing. Jobs
    3, 5 and 6 threw six such false alarms between them.
+10a. **OCR fails at BOTH ends of the size range, and both look like a missing
+   string.** Job 2's label sub-line was ten pixels tall and genuinely absent.
+   Wave 28 Sep's `60+` display figure fills nearly half its band and reads as
+   missing because the reader cannot parse a glyph larger than its crop. Before
+   reporting a big display string as missing, measure the bright-pixel fraction
+   in its briefed band: job 14's was 0.469 with a peak row density of 0.71 and
+   the `+` reading at 0.93, which is a figure that is present, not absent.
+10c. **Ban non-Latin characters in every negative list.** Two of fifteen renders
+   on 28 Sep came back with Chinese characters baked in, both where the prompt
+   asked for texture or small type: a newspaper's "unreadable body copy" produced
+   `电：188`, and a footer rendered as fullwidth `ｐeｐｔｉdｅａds.ｃom`. Never ask for
+   illegible filler text as texture — specify blank surface instead — and always
+   carry `no Chinese characters, no Japanese characters, no Cyrillic, no
+   fullwidth glyphs, no characters outside the basic English Latin alphabet`.
+10d. **Hand-made lettering has a character budget.** A 43-character line asked
+   for in sculpted clay silently vanished; the same concept at 24 characters
+   rendered cleanly. A long string in clay, marker or any hand-formed style does
+   not render badly, it disappears. Shorten it before the render, not after.
 10b. **Measure terminal punctuation by span ratio, never trust OCR on it.** A
    period is roughly a third of a letter's width: job 9's `ON THIS BOARD.` showed
    five letter spans of 91–102 pixels then a final span of 30, and `NO HANDOFFS.`
