@@ -157,6 +157,40 @@ canvas share a light. That is the exception, not the default.
    label. Escalate only for a string that is *misspelled* twice; a string that is
    *missing* twice is a scale problem and escalation just spends credits.
 
+## Video — what the model will and will not do
+
+13. **Cut placement is not steerable inside one generation. Edit it yourself.**
+   Video 1 v2 briefed eight hard cuts, timed to the frame and named (WHIP-PAN,
+   IMPACT, GLITCH, CUT TO BLACK). Five arrived, four bunched between 4.1 s and
+   5.9 s, and the picture then sat still from **5.92 to 12.54** — a 6.6-second
+   hold in a fifteen-second ad. That hold is what a client calls boring, and no
+   prompt language moved it. Generate **each beat as its own clip** and make the
+   cuts in ffmpeg, where they are guaranteed rather than requested. At
+   `seedance_2_5` 1080p the price is the same either way — 12 credits a second,
+   so seven 4-second beats cost 336 against 180 for one 15-second take, and the
+   extra buys real control plus spare footage at every cut.
+   Two edit tricks earn their keep: a **2-frame white flash** on a cut between
+   two visually similar beats, so it reads as a cut; and a **3-frame hard black**
+   at the PAS turn.
+14. **`showinfo` logs at info level — a scene-detect written with `-v error`
+   prints nothing and reads as zero cuts.** This exact command reported zero cuts
+   at every threshold down to 0.05 on a file that had five, and the false finding
+   nearly went into a client log. Always
+   `ffmpeg -hide_banner -nostats -loglevel info -i f.mp4 -vf "select='gt(scene,0.30)',showinfo" -f null -`.
+   A silent measurement is the failure mode that looks most like a result.
+15. **Verify caption placement by burning the subtitle track over black.** OCR
+   on the finished ad cannot tell a caption from the product label, and the label
+   on a hero vial sits low enough to poison the measurement. Burn the `.ass` over
+   a black clip of the same size, OCR that, and check the box against all four
+   Meta lines: Reels top-14 % (y 269), Reels bottom-35 % (y 1248), Stories
+   bottom-20 % (y 1536), 6 % side gutters (x 65–1015). ASS `marginV` of 430 lands
+   at y 1432–1484, inside the Reels bottom band; **700** lands at 1163–1213 and
+   clears everything.
+16. **A spoken number comes back as a numeral.** The voiceover says *sixty plus*
+   and `transcribe_words` writes `60`. Patch it back to the word form before
+   `group_captions.py`, or the script check exits 3 and a numeral burns onto the
+   canvas against the claim-bank rule.
+
 ## Vials — Armin, 11 Sep 2026
 
 > *"We need the vials to look like actual peptide vials, these look like
